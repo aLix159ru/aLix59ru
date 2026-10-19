@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aLix59ru — Bio</title>
+    <meta name="description" content="Личная страница aLix59ru — создатель Цири ВПН, проекты, девайсы и контакты.">
+    <!-- Open Graph -->
+    <meta property="og:title" content="aLix59ru — Bio">
+    <meta property="og:description" content="Создатель Цири ВПН, проекты, девайсы и контакты.">
+    <meta property="og:type" content="website">
+    <!-- Иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Шрифты Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #090a0f;
+            --card-bg: rgba(20, 22, 31, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --accent: #7c3aed;
+            --accent-glow: rgba(124, 58, 237, 0.4);
+            --cyan: #06b6d4;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 16px;
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.14), transparent 35%),
+                radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12), transparent 35%);
+            background-attachment: fixed;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 680px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 24px;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(124, 58, 237, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Шапка профиля */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .avatar {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 34px;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 0 25px var(--accent-glow);
+            flex-shrink: 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+        }
+
+        /* Если захочешь поставить картинку на аватарку, раскомментируй <img> в HTML */
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h1 {
+            font-size: 26px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .surname-badge {
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.07);
+            padding: 3px 10px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            font-weight: 400;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .meta-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .meta-tag {
+            font-size: 13px;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.04);
+            padding: 6px 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .meta-tag i {
+            color: var(--accent);
+        }
+
+        /* Баннер Цири ВПН */
+        .project-banner {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.15));
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .project-banner:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.25);
+            border-color: var(--accent);
+        }
+
+        .project-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .project-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .btn-arrow {
+            background: var(--accent);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+
+        .project-banner:hover .btn-arrow {
+            transform: translateX(4px);
+        }
+
+        /* Заголовки секций */
+        .section-title {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .section-title i {
+            color: var(--cyan);
+        }
+
+        /* Хобби и Девайсы */
+        .chips-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .chip {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 13.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .chip:hover {
+            background: rgba(255, 255, 255, 0.09);
+            transform: translateY(-2px);
+        }
+
+        .chip i {
+            color: var(--text-muted);
+        }
+
+        .chip.dream {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(239, 68, 68, 0.12));
+            border-color: rgba(245, 158, 11, 0.35);
+            color: #fcd34d;
+        }
+
+        .chip.dream i {
+            color: #f59e0b;
+        }
+
+        /* Тултип для чипов */
+        .chip[data-tooltip] {
+            position: relative;
+        }
+
+        .chip[data-tooltip]::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%) translateY(-5px);
+            background: rgba(13, 15, 23, 0.95);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.35);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 5px 11px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            z-index: 25;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .chip[data-tooltip]:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Сетка ссылок */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .link-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            padding: 13px 16px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+
+        .link-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .link-btn i {
+            font-size: 19px;
+            width: 22px;
+            text-align: center;
+        }
+
+        .link-sub {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: block;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .link-btn.disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        /* Хештеги */
+        .hashtag-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .hashtag-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 16px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .hashtag-name {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--cyan);
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .hashtag-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+        }
+
+        .hashtag-desc a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-color: var(--accent);
+            text-underline-offset: 3px;
+        }
+
+        .hashtag-desc a:hover {
+            color: var(--cyan);
+        }
+
+        /* Цитата */
+        .quote-card {
+            text-align: center;
+            font-style: italic;
+            color: #d1d5db;
+            background: linear-gradient(180deg, rgba(20, 22, 31, 0.4), rgba(124, 58, 237, 0.08));
+            border-left: 3px solid var(--accent);
+            font-size: 15px;
+        }
+
+        /* Уведомление о копировании */
+        #toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1000;
+        }
+
+        #toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 520px) {
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-info h1 {
+                justify-content: center;
+            }
+            .meta-tags {
+                justify-content: center;
+            }
+            .hashtag-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<main class="container">
+    <!-- Шапка профиля -->
+    <div class="card profile-header">
+        <div class="avatar">
+            <img src="avatar.jpg" alt="aLix59ru">
+        </div>
+        <div class="profile-info">
+            <h1>aLix59ru</h1>
+            <div class="meta-tags">
+                <div class="meta-tag">
+                    <i class="fa-solid fa-location-dot"></i> Пермь
+                </div>
+                <div class="meta-tag">
+                    <i class="fa-solid fa-clock"></i> ЕКБ: <span id="ekb-time">--:--:--</span>
+                </div>
+                <div class="meta-tag">
+                    <i class="fa-solid fa-cake-candles"></i> 29.12
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Главный проект: Цири ВПН -->
+    <a href="https://t.me/curuvpn_news" target="_blank" rel="noopener noreferrer" class="card project-banner">
+        <div class="project-info">
+            <h3><i class="fa-solid fa-shield-halved" style="color: #a78bfa;"></i> Создатель Цири ВПН</h3>
+            <p>Официальный Telegram-канал с новостями и обновлениями проекта</p>
+        </div>
+        <div class="btn-arrow">
+            <i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </a>
+
+    <!-- Ссылки и Контакты -->
+    <div class="card">
+        <div class="section-title">
+            <i class="fa-solid fa-wifi"></i> Ссылки & Контакты
+        </div>
+        <div class="links-grid">
+            <a href="https://guns.lol/alix59ru" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-solid fa-gun" style="color: #f43f5e;"></i>
+                <div>
+                    guns.lol
+                    <span class="link-sub">/alix59ru</span>
+                </div>
+            </a>
+
+            <!-- ЗАМЕНИ ССЫЛКУ НА СВОЮ ЛИЧКУ В ТГ -->
+            <a href="https://t.me/alix59ru" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-brands fa-telegram" style="color: #38bdf8;"></i>
+                <div>
+                    Личка
+                    <span class="link-sub">Написать в ЛС</span>
+                </div>
+            </a>
+
+            <!-- ТВОЙ ЩИТПОСТ КАНАЛ -->
+            <a href="https://t.me/aLix59ruShitpost" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-solid fa-bolt" style="color: #eab308;"></i>
+                <div>
+                    Щитпост
+                    <span class="link-sub">ТГ-канал</span>
+                </div>
+            </a>
+
+            <!-- ССЫЛКА НА STEAM -->
+            <a href="https://steamcommunity.com/profiles/76561199579445489/" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-brands fa-steam" style="color: #cbd5e1;"></i>
+                <div>
+                    Steam
+                    <span class="link-sub">Профиль</span>
+                </div>
+            </a>
+
+            <!-- ЗАМЕНИ ССЫЛКУ НА MYNICKNAME -->
+            <a href="https://mynickname.com/alix59ru" target="_blank" rel="noopener noreferrer" class="link-btn">
+                <i class="fa-solid fa-id-badge" style="color: #10b981;"></i>
+                <div>
+                    MyNickname
+                    <span class="link-sub">Сертификат ника</span>
+                </div>
+            </a>
+
+            <button type="button" class="link-btn" onclick="copyText('aleks59russ')">
+                <i class="fa-brands fa-discord" style="color: #818cf8;"></i>
+                <div>
+                    Discord 2
+                    <span class="link-sub">aleks59russ (нажми)</span>
+                </div>
+            </button>
+
+            <div class="link-btn disabled" title="Аккаунт заблокирован до 2027 года" aria-disabled="true">
+                <i class="fa-brands fa-discord" style="color: #ef4444;"></i>
+                <div>
+                    alix59ru
+                    <span class="link-sub">Бан до 2027 💀</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Девайсы -->
+    <div class="card">
+        <div class="section-title">
+            <i class="fa-solid fa-microchip"></i> Мои девайсы & Железо
+        </div>
+        <div class="chips-container">
+            <div class="chip" data-tooltip="Пиксель фефть"><i class="fa-solid fa-mobile-screen"></i> Google Pixel 6</div>
+            <div class="chip"><i class="fa-solid fa-mobile-screen"></i> Xiaomi Mi 9T</div>
+            <div class="chip"><i class="fa-solid fa-mobile-screen"></i> Redmi 3</div>
+            <div class="chip"><i class="fa-solid fa-laptop"></i> Lenovo V15 G3 IAP</div>
+            <div class="chip"><i class="fa-solid fa-microchip"></i> Arduino Uno</div>
+            <div class="chip"><i class="fa-solid fa-terminal"></i> M5Stick</div>
+            <div class="chip"><i class="fa-solid fa-walkie-talkie"></i> T-Embed CC1101</div>
+            <div class="chip"><i class="fa-brands fa-xbox"></i> Xbox 360</div>
+            <div class="chip"><i class="fa-solid fa-gamepad"></i> Nintendo Switch</div>
+            <div class="chip"><i class="fa-solid fa-camera"></i> Canon EOS 600D</div>
+            <div class="chip dream"><i class="fa-solid fa-star"></i> Мечтаю и коплю на Steam Deck</div>
+        </div>
+    </div>
+
+    <!-- Хобби -->
+    <div class="card">
+        <div class="section-title">
+            <i class="fa-solid fa-fire"></i> Хобби & Увлечения
+        </div>
+        <div class="chips-container">
+            <div class="chip"><i class="fa-solid fa-hand-fist"></i> Тхэквондо</div>
+            <div class="chip"><i class="fa-solid fa-code"></i> Программирование</div>
+            <div class="chip"><i class="fa-solid fa-screwdriver-wrench"></i> Arduino & DIY</div>
+            <div class="chip"><i class="fa-solid fa-gamepad"></i> Видеоигры</div>
+            <div class="chip"><i class="fa-brands fa-android"></i> Прошивка телефонов/планшетов</div>
+        </div>
+    </div>
+
+    <!-- О хештегах -->
+    <div class="card">
+        <div class="section-title">
+            <i class="fa-solid fa-hashtag"></i> О хештегах
+        </div>
+        <div class="hashtag-list">
+            <div class="hashtag-item">
+                <span class="hashtag-name">#faeroteam</span>
+                <span class="hashtag-desc">Являюсь членом <a href="https://t.me/faerochat" target="_blank" rel="noopener noreferrer">@faerochat</a></span>
+            </div>
+            <div class="hashtag-item">
+                <span class="hashtag-name">#xbox360forever</span>
+                <span class="hashtag-desc">XBOX 360 навсегда — <a href="https://t.me/xbox360chaters" target="_blank" rel="noopener noreferrer">@xbox360chaters</a></span>
+            </div>
+            <div class="hashtag-item">
+                <span class="hashtag-name">#РКП</span>
+                <span class="hashtag-desc">Канал <a href="https://t.me/RKP_channel" target="_blank" rel="noopener noreferrer">@RKP_channel</a></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Цитата -->
+    <div class="card quote-card">
+        «Блокируя доступ в интернет — вы лишаете информации всех своих граждан»
+    </div>
+</main>
+
+<!-- Всплывашка для копирования -->
+<div id="toast" role="status" aria-live="polite">Скопировано в буфер обмена!</div>
+
+<script>
+    // Живые часы по времени Екатеринбурга / Перми (UTC+5)
+    function updateClock() {
+        const options = {
+            timeZone: 'Asia/Yekaterinburg',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        };
+        const timeString = new Intl.DateTimeFormat('ru-RU', options).format(new Date());
+        document.getElementById('ekb-time').textContent = timeString;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Копирование текста (для Discord)
+    let toastTimeout;
+    function copyText(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            const toast = document.getElementById('toast');
+            toast.textContent = `Ник ${text} скопирован!`;
+            toast.classList.add('show');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }).catch(() => {
+            prompt('Скопируйте ник вручную:', text);
+        });
+    }
+</script>
+
+</body>
+</html>
